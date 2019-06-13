@@ -24,6 +24,6 @@ public class SpringCloudConfigClientOneApplication {
 
 	@RequestMapping(value = "/hello")
 	public String hello() {
-		return hello;
+		return hello+"   8882";
 	}
 }

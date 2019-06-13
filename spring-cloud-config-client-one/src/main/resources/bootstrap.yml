@@ -1,12 +1,12 @@
 spring:  application:    name: config-client
   cloud:    config:      label: master
       profile: dev
-      uri: http://localhost:8888
+      #uri: http://localhost:8888 将config-server中的url硬编码去掉，改为通过服务中心根据名字自动发现机制      discovery:          enabled: true          serviceId: config-server
     bus:      enabled: true      trace:        enabled: true      refresh:        enabled: true  rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
 #注入目标，配置服务中心url，与服务端的配置保持一致eureka:  client:    service-url:
-      defaultZone: http://localhost:8781/eureka/
+      defaultZone: http://localhost:8781/eureka/  instance:    preferIpAddress: true
 management:  endpoints:    web:      exposure:        include: bus-refresh
